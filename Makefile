@@ -13,7 +13,12 @@ run:
 
 build:
 	@echo "Building..."
-	@GOPATH=$(GOPATH) GOBIN=$(GOBIN) CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o $(GOBIN)/$(PACKAGE) $(PREFIX)/$(PACKAGE)
+	@GOPATH=$(GOPATH) GOBIN=$(GOBIN) CGO_ENABLED=0 GOOS=linux \
+	  go build \
+	  -a \
+	  -installsuffix cgo \
+	  -o $(GOBIN)/$(PACKAGE) \
+	  $(PREFIX)/$(PACKAGE)
 
 clean:
 	rm -f $(GOPATH)/bin/$(PACKAGE) $(GOPATH)/pkg/*/$(PACKAGE).a
