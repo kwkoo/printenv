@@ -20,7 +20,7 @@ oc create \
 
     ````
     oc new-build \
-      golang~http://qnap.home:3000/kwkoo/printenv.git \
+      golang~https://github.com/kwkoo/printenv.git \
       --name=builder \
       --context-dir=src \
       -e IMPORT_URL=. \
