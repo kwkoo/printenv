@@ -33,7 +33,7 @@ oc create \
       --name=runtime \
       --source-image=builder \
       --source-image-path=/opt/app-root/gobinary:. \
-      --dockerfile=$'FROM scratch\nCOPY gobinary /\nUSER 1001\nEXPOSE     8080\nENTRYPOINT ["/gobinary"]' \
+      --dockerfile=$'FROM scratch\nCOPY gobinary /\nUSER 1001\nEXPOSE 8080\nENTRYPOINT ["/gobinary"]' \
       --strategy=docker
     ````
 3. Create the application:
