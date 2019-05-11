@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# This script is needed because the default Go image does not produce a
+# statically-linked binary.
+
+set -e
+
+export GOPATH=$HOME/go
+mkdir -p $GOPATH/src
+mv /tmp/src/* $HOME/go/src/
+
+CGO_ENABLED=0 go build \
+    -a \
+    -installsuffix cgo \
+    -o /opt/app-root/gobinary \
+    $INSTALL_URL
+
